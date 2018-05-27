@@ -6,6 +6,25 @@ html {
   font-size: 62.5%;
 }
 
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-base;
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 auto;
   padding: 0.4em;
+  width: 100vw;
+  max-width: 1112px;
+  height: 100vh;
+  max-height: 834px;
 }
