@@ -1,0 +1,68 @@
+{
+  "name": "lifehack",
+  "version": "0.0.1",
+  "description": "A neat little web app that helps you track your lifetotal for mtg games",
+  "main": "index.js",
+  "repository": "https://github.com/quodos/lifehack.git",
+  "author": "Thomas Wilhelm <thomas.p.wilhelm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "build": "webpack --mode production",
+    "lint": "node_modules/.bin/xo",
+    "lint:fix": "node_modules/.bin/xo --fix",
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "xo": {
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "no-nested-ternary": 0,
+      "prefer-reflect": 0,
+      "prefer-destructuring": 0,
+      "prettier/prettier": ["error", {
+        "singleQuote": true,
+        "trailingComma": "all",
+        "printWidth": 80
+      }]
+    }
+  },
+  "dependencies": {
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.1.6",
+    "css-loader": "^0.28.11",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
+    "prettier": "^1.12.1",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "vue-loader": "^15.2.1",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4",
+    "xo": "^0.21.1"
+  },
+  "pre-commit": [
+    "lint:fix"
+  ]
+}
