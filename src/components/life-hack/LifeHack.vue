@@ -1,6 +1,6 @@
 <template>
-  <div>
-    {{ message }}
+  <div id="container" class="container">
+    {{ $store.state.count }}
   </div>
 </template>
 

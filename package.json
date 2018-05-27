@@ -26,15 +26,20 @@
       "no-nested-ternary": 0,
       "prefer-reflect": 0,
       "prefer-destructuring": 0,
-      "prettier/prettier": ["error", {
-        "singleQuote": true,
-        "trailingComma": "all",
-        "printWidth": 80
-      }]
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "trailingComma": "all",
+          "printWidth": 80
+        }
+      ]
     }
   },
   "dependencies": {
-    "vue": "^2.5.16"
+    "vue": "^2.5.16",
+    "vuex": "^3.0.1",
+    "vuex-persist": "^1.2.2"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
