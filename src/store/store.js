@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import VuexPersistence from 'vuex-persist';
+// Import VuexPersistence from 'vuex-persist';
 
 // const vuexLocal = new VuexPersistence({
 //     storage: window.localStorage,
@@ -14,7 +14,7 @@ const state = {
 
 export default new Vuex.Store({
   state,
-  // plugins: [
+  // Plugins: [
   //   vuexLocal.plugin
   // ],
 });
