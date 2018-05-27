@@ -13,25 +13,10 @@ const router = new VueRouter({
   routes: routes.routes,
 });
 
-Vue.mixin({
-  methods: {
-    _veryUsefulMethod() {
-      console.log('I am a global mixin. I should be used across the app.');
-    },
-  },
-});
-
+// Initialize the app
 const App = new Vue({
   el: '#app',
   router,
   name: 'App',
   render: h => h(LifeHack),
-  methods: {
-    _someMethodYouWant() {
-      console.log('Any method that you want to have!');
-    },
-  },
-  created() {
-    console.log('App created....');
-  },
 });

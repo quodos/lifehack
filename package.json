@@ -7,10 +7,10 @@
   "author": "Thomas Wilhelm <thomas.p.wilhelm@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
-    "build": "webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --colors --open",
+    "build": "webpack --mode production --progress --colors",
     "lint": "node_modules/.bin/xo",
-    "lint:fix": "node_modules/.bin/xo --fix",
+    "lint:fix": "node_modules/.bin/xo --fix"
   },
   "prettier": {
     "singleQuote": true
@@ -61,8 +61,5 @@
     "webpack-cli": "^2.1.4",
     "webpack-dev-server": "^3.1.4",
     "xo": "^0.21.1"
-  },
-  "pre-commit": [
-    "lint:fix"
-  ]
+  }
 }
