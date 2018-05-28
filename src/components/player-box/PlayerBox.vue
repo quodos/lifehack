@@ -7,46 +7,39 @@
           {{ player.life }}
         </span>
         <button class="lifecounter__button lifecounter__button--up"
-                @click.prevent="tickUpLife()"
+                @click.prevent="incrementPlayerLife()"
         />
         <button class="lifecounter__button lifecounter__button--down"
-                @click.prevent="tickDownLife()"
+                @click.prevent="decrementPlayerLife()"
         />
       </div>
+      <!-- lifecounter -->
     </div>
     <!-- player-box__body -->
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import toSafeInteger from 'lodash/toSafeInteger';
 
 export default {
   props: {
+    player: Object,
     playerIndex: String,
   },
 
   computed: {
-    player() {
-      return this.$store.state.players[this.playerIndex];
-    },
-
-    colors() {
-      return this.$store.state.colors;
-    },
+    ...mapState(['colors']),
   },
 
   methods: {
-    tickUpLife() {
-      let playerLife = toSafeInteger(this.player.life);
-      playerLife++;
-      this.player.life = playerLife.toString();
+    incrementPlayerLife() {
+      this.$store.commit('incrementPlayerLife', { playerIndex: this.playerIndex });
     },
 
-    tickDownLife() {
-      let playerLife = toSafeInteger(this.player.life);
-      playerLife--;
-      this.player.life = playerLife.toString();
+    decrementPlayerLife() {
+      this.$store.commit('decrementPlayerLife', { playerIndex: this.playerIndex });
     },
   },
 };

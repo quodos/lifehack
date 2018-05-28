@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import toSafeInteger from 'lodash/toSafeInteger';
 // Import VuexPersistence from 'vuex-persist';
 
 // const vuexLocal = new VuexPersistence({
@@ -10,8 +11,8 @@ Vue.use(Vuex);
 
 const state = {
   startingLifeTotal: 20,
-  players: {
-    0: {
+  players: [
+    {
       name: 'Pierre',
       commander: null,
       colors: [],
@@ -21,7 +22,7 @@ const state = {
       },
       commanderDamage: null,
     },
-    1: {
+    {
       name: 'Markus',
       commander: null,
       colors: [],
@@ -31,7 +32,7 @@ const state = {
       },
       commanderDamage: null,
     },
-    2: {
+    {
       name: 'Robert',
       commander: null,
       colors: [],
@@ -41,7 +42,7 @@ const state = {
       },
       commanderDamage: null,
     },
-    3: {
+    {
       name: 'Thomas',
       commander: null,
       colors: [],
@@ -51,7 +52,7 @@ const state = {
       },
       commanderDamage: null,
     },
-  },
+  ],
   colors: {
     w: {
       name: 'White',
@@ -86,8 +87,25 @@ const state = {
   },
 };
 
+const mutations = {
+  incrementPlayerLife(state, payload) {
+    let currentPlayerLife = toSafeInteger(state.players[payload.playerIndex].life);
+    currentPlayerLife++;
+
+    state.players[payload.playerIndex].life = currentPlayerLife.toString();
+  },
+
+  decrementPlayerLife(state, payload) {
+    let currentPlayerLife = toSafeInteger(state.players[payload.playerIndex].life);
+    currentPlayerLife--;
+
+    state.players[payload.playerIndex].life = currentPlayerLife.toString();
+  },
+};
+
 export default new Vuex.Store({
   state,
+  mutations,
   // Plugins: [
   //   vuexLocal.plugin
   // ],
