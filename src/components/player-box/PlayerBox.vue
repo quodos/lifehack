@@ -35,11 +35,11 @@ export default {
 
   methods: {
     incrementPlayerLife() {
-      this.$store.commit('incrementPlayerLife', { playerIndex: this.playerIndex });
+      this.$store.commit('incrementPlayerLife', player);
     },
 
     decrementPlayerLife() {
-      this.$store.commit('decrementPlayerLife', { playerIndex: this.playerIndex });
+      this.$store.commit('decrementPlayerLife', player);
     },
   },
 };

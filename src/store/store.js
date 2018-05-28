@@ -88,18 +88,20 @@ const state = {
 };
 
 const mutations = {
-  incrementPlayerLife(state, payload) {
-    let currentPlayerLife = toSafeInteger(state.players[payload.playerIndex].life);
+  incrementPlayerLife({ players }, player) {
+    const playerIndex = players.indexOf(player);
+    let currentPlayerLife = toSafeInteger(players[playerIndex].life);
     currentPlayerLife++;
 
-    state.players[payload.playerIndex].life = currentPlayerLife.toString();
+    players[playerIndex].life = currentPlayerLife.toString();
   },
 
-  decrementPlayerLife(state, payload) {
-    let currentPlayerLife = toSafeInteger(state.players[payload.playerIndex].life);
+  decrementPlayerLife({ players }, player) {
+    const playerIndex = players.indexOf(player);
+    let currentPlayerLife = toSafeInteger(players[playerIndex].life);
     currentPlayerLife--;
 
-    state.players[payload.playerIndex].life = currentPlayerLife.toString();
+    players[playerIndex].life = currentPlayerLife.toString();
   },
 };
 
