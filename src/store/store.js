@@ -1,6 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import toSafeInteger from 'lodash/toSafeInteger';
+
+import PlayerModule from './modules/player';
+
+import Player from '../models/player';
+import { WHITE, BLUE, BLACK, RED, GREEN, COLORLESS } from '../models/colors';
+
 // Import VuexPersistence from 'vuex-persist';
 
 // const vuexLocal = new VuexPersistence({
@@ -12,79 +18,19 @@ Vue.use(Vuex);
 const state = {
   startingLifeTotal: 20,
   players: [
-    {
-      name: 'Pierre',
-      commander: null,
-      colors: [],
-      life: 20,
-      counters: {
-        poison: 0,
-      },
-      commanderDamage: null,
-    },
-    {
-      name: 'Markus',
-      commander: null,
-      colors: [],
-      life: 20,
-      counters: {
-        poison: 0,
-      },
-      commanderDamage: null,
-    },
-    {
-      name: 'Robert',
-      commander: null,
-      colors: [],
-      life: 20,
-      counters: {
-        poison: 0,
-      },
-      commanderDamage: null,
-    },
-    {
-      name: 'Thomas',
-      commander: null,
-      colors: [],
-      life: 20,
-      counters: {
-        poison: 0,
-      },
-      commanderDamage: null,
-    },
+    new Player('Pierre'),
+    new Player('Markus'),
+    new Player('Robert'),
+    new Player('Thomas'),
   ],
-  colors: {
-    w: {
-      name: 'White',
-      shortName: 'W',
-      hex: '#eeead3',
-    },
-    u: {
-      name: 'Blue',
-      shortName: 'U',
-      hex: '#3a81b2',
-    },
-    b: {
-      name: 'Black',
-      shortName: 'B',
-      hex: '#1f1e1d',
-    },
-    r: {
-      name: 'Red',
-      shortName: 'R',
-      hex: '#aa4545',
-    },
-    g: {
-      name: 'Green',
-      shortName: 'G',
-      hex: '#51a36d',
-    },
-    c: {
-      name: 'Colorless',
-      shortName: 'C',
-      hex: '#9cafae',
-    },
-  },
+  colors: [
+    WHITE,
+    BLUE,
+    BLACK,
+    RED,
+    GREEN,
+    COLORLESS,
+  ],
 };
 
 const mutations = {
