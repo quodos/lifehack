@@ -36,18 +36,12 @@ const state = {
 const mutations = {
   incrementPlayerLife({ players }, player) {
     const playerIndex = players.indexOf(player);
-    let currentPlayerLife = toSafeInteger(players[playerIndex].life);
-    currentPlayerLife++;
-
-    players[playerIndex].life = currentPlayerLife.toString();
+    players[playerIndex].lifetotal++;
   },
 
   decrementPlayerLife({ players }, player) {
     const playerIndex = players.indexOf(player);
-    let currentPlayerLife = toSafeInteger(players[playerIndex].life);
-    currentPlayerLife--;
-
-    players[playerIndex].life = currentPlayerLife.toString();
+    players[playerIndex].lifetotal--;
   },
 };
 

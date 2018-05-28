@@ -14,7 +14,9 @@ import toSafeInteger from 'lodash/toSafeInteger';
 import PlayerBox from '../player-box';
 
 export default {
-  computed: mapState(['players'])
+  computed: {
+    ...mapState(['players']),
+  },
 
   created() {
     console.log('Players:', this.players);

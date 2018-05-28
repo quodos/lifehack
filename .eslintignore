@@ -1,0 +1,7 @@
+node_modules/**
+dist/**
+src/html/index.ejs
+bin/**
+config/**
+server/**
+tests/**
