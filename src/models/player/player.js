@@ -2,11 +2,13 @@ import toNumber from 'lodash/toNumber';
 import toSafeInteger from 'lodash/toSafeInteger';
 
 class Player {
-  constructor(name = 'Name', startingLifeTotal = 20, colors = []) {
+  constructor(name = 'Name', startingLifeTotal = 20, counter = {}, colors = []) {
     this.name = name;
+    this.commanderName = null;
     this.lifetotal = toSafeInteger(startingLifeTotal);
     this.counter = {
       poison: 0,
+      ...counter
     };
     this.colors = colors;
   }
@@ -17,6 +19,14 @@ class Player {
 
   set name(value) {
     this._name = value;
+  }
+
+  get commanderName() {
+    return this._name;
+  }
+
+  set commanderName(value) {
+    this._commanderName = value;
   }
 
   get lifetotal() {
