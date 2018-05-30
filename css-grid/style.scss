@@ -62,22 +62,115 @@ body {
   }
 
   &__header,
-  &__poison,
-  &__life,
-  &__commander-damage,
-  &__footer {
+  &__counter {
     grid-row: auto;
-    background-color: rgba(0, 0, 0, 0.12);
-    border-radius: 4px;
+    // background-color: rgba(0, 0, 0, 0.12);
+    // border-radius: 4px;
   }
 
   &__header {
     grid-column: col / span 3;
   }
 
-  &__poison,
-  &__life,
-  &__commander-damage {
-    grid-column: auto;
+  &__name {
+    font-size: 2.6rem;
+    text-transform: uppercase;
   }
+
+  &__counter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+
+    &--poison,
+    &--life,
+    &--commander-damage {
+      grid-column: auto;
+    }
+  }
+}
+
+.counter {
+  &__value,
+  &__actions,
+  &__label {
+    width: 100%;
+    line-height: 1;
+  }
+
+  &__value {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1 1 auto;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 40px);
+  }
+
+  &__action {
+    display: block;
+    width: 100%;
+    height: 50%;
+    cursor: pointer;
+
+    &--full {
+      height: 100%;
+    }
+  }
+
+  &__label {
+    flex: 0 0 auto;
+    padding: 10px 0 0;
+    border-top: 4px solid rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  &--life {
+    .counter__value {
+      padding-bottom: 0.3em;
+      text-align: center;
+      font-size: 6rem;
+    }
+
+    .counter__label {
+      border-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &--poison,
+  &--commander-damage {
+    .counter__value {
+      padding-bottom: 0.4em;
+      font-size: 4rem;
+    }
+
+    .counter__label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &--commander-damage {
+    .counter__value,
+    .counter__label {
+      text-align: right;
+    }
+  }
+}
+
+button {
+  border: 0 none;
+  outline: 0 none;
+  background: transparent;
 }
